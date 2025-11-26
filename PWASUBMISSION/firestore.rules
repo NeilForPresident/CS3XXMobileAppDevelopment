@@ -1,0 +1,110 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ───────────────────────────────
+    // USERS
+    // /users/{userId}
+    // ───────────────────────────────
+    match /users/{userId} {
+
+      // User can create their own profile
+      allow create: if request.auth != null && request.auth.uid == userId;
+
+      // User can update their own profile
+      allow update: if request.auth != null && request.auth.uid == userId;
+
+      // User can read their own profile
+      allow read: if request.auth != null && request.auth.uid == userId;
+
+      // Allow listing / searching users (needed for friend search)
+      allow get, list: if request.auth != null;
+
+
+      // ───────────────────────────────
+      // FRIENDS
+      // /users/{userId}/friends/{friendId}
+      // ───────────────────────────────
+      match /friends/{friendId} {
+
+        // Owner can manage their friends list
+        allow read, create, update, delete: if request.auth.uid == userId;
+
+        // Friend can write their own entry to someone else's list
+        // Needed for mutual friend adding
+        allow create, update: if request.auth.uid == friendId;
+      }
+
+
+      // ───────────────────────────────
+      // FRIEND REQUESTS
+      // /users/{userId}/friendRequests/{requestId}
+      // ───────────────────────────────
+      match /friendRequests/{requestId} {
+
+        // Owner of inbox can read/update/delete requests
+        allow read, update, delete: if request.auth.uid == userId;
+
+        // Others can create requests
+        allow create: if request.auth.uid != userId;
+      }
+
+
+      // ───────────────────────────────
+      // NOTIFICATIONS
+      // /users/{userId}/notifications/{notifId}
+      // ───────────────────────────────
+      match /notifications/{notifId} {
+
+        // Owner can read/update/delete notifications
+        allow read, update, delete: if request.auth.uid == userId;
+
+        // Other users can CREATE notifications (accepted request, reminder)
+        allow create, update: if request.auth.uid != userId;
+      }
+
+
+      // ───────────────────────────────
+      // FALLS + NOTABLE FALLS
+      // ───────────────────────────────
+      match /falls/{fallId} {
+        allow read, create, update, delete: if request.auth.uid == userId;
+      }
+
+      match /notableFalls/{fallId} {
+        allow read, create, update, delete: if request.auth.uid == userId;
+      }
+    }
+
+
+    // ───────────────────────────────
+    // USER TAGS (UNIQUE userTag)
+    // ───────────────────────────────
+    match /userTags/{tagId} {
+      allow read: if request.auth != null;
+
+      // Allow authenticated users to create/write tags
+      // (collision prevention handled in application code)
+      allow write: if request.auth != null;
+
+      allow delete: if false;
+    }
+
+
+    // ───────────────────────────────
+    // LEADERBOARDS (PUBLIC READ)
+    // ───────────────────────────────
+    match /leaderboards/{docId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+
+    // ───────────────────────────────
+    // DEFAULT DENY
+    // ───────────────────────────────
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

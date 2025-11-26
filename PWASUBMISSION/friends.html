@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>BeCareful. Friends</title>
+  <link rel="stylesheet" href="darkmode.css">
+  <link rel="stylesheet" href="friends.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="landing.html" class="back-button">‹ Back</a>
+    <h1>BeCareful.</h1>
+    <a href="notifications.html" class="notification">👥</a>
+  </header>
+
+  <div class="top-divider"></div>
+
+  <h2 class="page-title">Friends</h2>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Enter friend code (e.g. USER#4162AB)">
+    <button id="searchBtn">🔍</button>
+  </div>
+
+  <!-- Search Results -->
+  <section class="results">
+    <h3>Search Results</h3>
+    <ul id="searchResults"></ul>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- Friend Requests -->
+  <section class="requests">
+    <h3>Incoming Requests</h3>
+    <ul id="friendRequests">
+      <li><em>Loading...</em></li>
+    </ul>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- Friends List -->
+  <section class="friends-list">
+    <h3>Your Friends</h3>
+    <ul id="friendsList">
+      <li><em>Loading...</em></li>
+    </ul>
+  </section>
+
+  <!-- Scripts -->
+  <link rel="manifest" href="manifest.json" />
+  <script type="module" src="js/auth-guard.js"></script>
+  <script type="module" src="js/friends.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+    }
+  </script>
+  <script type="module">
+  import { applyDarkMode } from "./js/darkmode.js";
+  applyDarkMode();
+  </script>
+
+</body>
+</html>

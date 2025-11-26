@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Careful™ Charts</title>
+  <link rel="stylesheet" href="darkmode.css">
+  <link rel="stylesheet" href="charts.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  
+  <header>
+    <a href="landing.html" class="back-button">‹ Back</a>
+    <h1>BeCareful.</h1>
+    <a href="notifications.html" class="notification">🔔</a>
+  </header>
+
+  <div class="top-divider"></div>
+
+
+  <h2 class="chart-title">Careful™<br>Chart.</h2>
+
+  
+  <div class="profile-section">
+    <img id="chartsAvatar" class="avatar" src="avatar-placeholder.png">
+    <p class="username" id="chartsUsername">Loading...</p>
+  </div>
+
+
+  
+  <div class="dropdowns">
+    <select>
+      <option>Drops</option>
+      <option>Bounces</option>
+      <option>Distance (m)</option>
+    </select>
+
+    <select>
+      <option>2025</option>
+      <option>2024</option>
+      <option>2023</option>
+    </select>
+
+    <select>
+      <option>Monthly</option>
+      <option>Weekly</option>
+      <option>Daily</option>
+    </select>
+  </div>
+
+  
+<div class="summary-card">
+  <h3 id="totalDrops">Total Drops: 0</h3>
+  <h3 id="totalDistance">Total Distance: 0m</h3>
+  <h3 id="totalBounces">Total Bounces: 0</h3>
+</div>
+
+
+  
+  <div class="chart-placeholder">
+    <canvas id="fallsChart"></canvas>
+  </div>
+
+</body>
+
+
+<link rel="manifest" href="manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+</script>
+<script type="module">
+  import { applyDarkMode } from "./js/darkmode.js";
+  applyDarkMode();
+</script>
+
+<script type="module" src="js/auth-guard.js"></script>
+<script type="module" src="js/charts.js"></script>
+<script type="module" src="js/charts-profile-load.js"></script>
+</html>

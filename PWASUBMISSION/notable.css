@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 18px;
+  border-bottom: 2px solid black;
+}
+
+.back-button {
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: black;
+}
+
+.page-title {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.falls-list ul {
+  list-style: none;
+  padding: 0 20px;
+  margin: 20px 0;
+}
+
+.falls-list li {
+  padding: 15px 0;
+  border-bottom: 1.5px solid #ccc;
+}
+
+.fall-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.fall-info p {
+  margin: 6px 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: #666;
+}

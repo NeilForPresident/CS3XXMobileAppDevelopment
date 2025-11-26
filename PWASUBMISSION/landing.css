@@ -1,0 +1,388 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background: white;
+  color: black;
+  text-align: center;
+  padding: env(safe-area-inset-top) 16px env(safe-area-inset-bottom);
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.notification {
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+/* Make linked list items look the same as normal ones */
+.settings-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  width: 100%;
+}
+
+.leaderboard {
+  list-style: none;
+  padding: 0;
+  margin: 15px auto;
+  width: 90%;
+}
+
+.leaderboard li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 2px solid black;
+  font-weight: 500;
+}
+
+.leaderboard .user-wrap span {
+  font-size: 1rem;
+}
+
+.leaderboard .score {
+  font-weight: bold;
+}
+
+
+.add-friends{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  width: 100%;
+}
+
+.settings-link span {
+  pointer-events: none;
+}
+
+
+
+/* NAVIGATION */
+nav {
+  display: flex;
+  justify-content: space-around;
+  border-width: 100vw;
+  border-bottom: 4px solid #000;
+  margin-bottom: 24px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: black;
+  color: white;
+}
+
+/* CONTENT SECTIONS */
+.content {
+  display: none;
+}
+
+.content.active {
+  display: block;
+}
+
+/* HOME PAGE */
+.subtitle {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  border: 6px solid black;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.charts {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  background: #ccc;
+  border-radius: 25px;
+  padding: 12px 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+}
+
+
+.circle h2 {
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+.dropdowns {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+select {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 18px;
+  font-size: 1rem;
+}
+
+.charts {
+  background: #ccc;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+}
+
+.funfact {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* PROFILE PAGE */
+.profile-info .avatar {
+  width: 110px;
+  height: 110px;
+  background: black;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+}
+
+.profile-info h2 {
+  margin-bottom: 4px;
+}
+
+hr {
+  border: none;
+  border-top: 4px solid black;
+  margin: 20px 0;
+}
+
+.stats {
+  max-width: 360px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#userTagDisplay {
+  font-weight: 600;
+  font-family: monospace;
+  margin-top: 6px;
+  cursor: pointer;
+}
+#userTagDisplay::after {
+  content: " 📋";
+  opacity: 0.6;
+}
+
+
+.stats h3 {
+  margin-bottom: 10px;
+}
+
+.stats ul {
+  list-style: none;
+}
+
+.stats li {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 2px solid #ddd;
+  font-size: 1rem;
+}
+
+.stats li.signout {
+  color: red;
+  border-bottom: none;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+/* SOCIAL – Leaderboards */
+#social h2 {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.leaderboard {
+  list-style: none;
+  margin: 15px auto;
+  padding: 0;
+  width: 90%;
+}
+
+.leaderboard li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 2px solid black;
+  font-weight: 500;
+}
+
+.leaderboard .user-wrap span {
+  font-size: 1rem;
+}
+
+.leaderboard .score {
+  font-weight: bold;
+}
+
+.user-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flag {
+  width: 24px;
+}
+
+.score {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.arrow {
+  font-size: 1.3rem;
+}
+
+hr.spacer {
+  border: none;
+  border-top: 3px solid #ddd;
+  margin: 20px 0;
+}
+
+.add-friends {
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 16px 0;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.settings-link {
+  transition: background 0.15s ease-in;
+}
+
+.settings-link:active {
+  background: #f2f2f2;
+}
+
+/* ===========================
+   CONFIRM FALL POPUP
+   =========================== */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  border: 4px solid black;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  width: 85%;
+  max-width: 320px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  margin-bottom: 18px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 12px;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#fall-yes {
+  background: black;
+  color: white;
+}
+
+#fall-no {
+  background: #ccc;
+  color: black;
+}
+
+

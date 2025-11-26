@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>BeCareful(TM)</title>
+    <link rel="stylesheet" href="darkmode.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>BeCareful™</h1>
+    <img src="logo.png" alt="BeCareful Logo" id="logo" width="256" height="320">
+    <h2>Sign in</h2>
+    <h3>Enter your credentials</h3>
+    <input type="email" id="email" name="email" placeholder="Enter your email">
+    <input type="password" id="password" name="password" placeholder="Enter your password">
+    <button id="regcontinue">continue</button>
+    <br>
+    <h2>OR</h2>
+    <button id="gglcontinue">Continue with Google</button>
+    <script src="app.js"></script>
+</body>
+<script type="module" src="js/auth-index.js"></script>
+<link rel="manifest" href="manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+</script>
+<script type="module">
+  import { applyDarkMode } from "./js/darkmode.js";
+  applyDarkMode();
+</script>
+
+
+</html>

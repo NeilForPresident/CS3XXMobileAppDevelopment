@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>BeCareful. Edit Profile</title>
+  <link rel="stylesheet" href="darkmode.css">
+  <link rel="stylesheet" href="editprofile.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="landing.html" class="back-button">‹ Back</a>
+    <h1>BeCareful.</h1>
+    <div class="notification">👤</div>
+  </header>
+
+  <div class="top-divider"></div>
+
+  <h2 class="page-title">Edit Profile</h2>
+
+  <!-- Profile Edit Section -->
+  <section class="profile-edit">
+    <div class="avatar-container">
+      <img id="avatarPreview" src="avatar-placeholder.png" alt="Current Avatar">
+      <input type="file" id="avatarInput" accept="image/*">
+    </div>
+
+    <label for="displayName">Display Name</label>
+    <input type="text" id="displayName" placeholder="Enter new display name">
+
+    <label for="country">Country Flag</label>
+    <select id="country">
+      <option value="">Select Country</option>
+      <option value="uk">🇬🇧 United Kingdom</option>
+      <option value="us">🇺🇸 United States</option>
+      <option value="ie">🇮🇪 Ireland</option>
+      <option value="fr">🇫🇷 France</option>
+      <option value="de">🇩🇪 Germany</option>
+      <option value="jp">🇯🇵 Japan</option>
+      <option value="kr">🇰🇷 Korea</option>
+    </select>
+
+    <div class="privacy-toggle">
+      <span>Private Mode</span>
+      <label class="switch">
+        <input type="checkbox" id="privateMode">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="change-pass">
+      <h3>Change Password</h3>
+      <input type="password" id="newPassword" placeholder="Enter new password">
+      <button id="updatePassword">Update Password</button>
+    </div>
+
+    <button id="saveChanges">Save Changes</button>
+  </section>
+
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+    }
+
+    // Avatar preview
+    const avatarInput = document.getElementById('avatarInput');
+    const avatarPreview = document.getElementById('avatarPreview');
+    avatarInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) avatarPreview.src = URL.createObjectURL(file);
+    });
+  </script>
+  <script type="module" src="js/auth-guard.js"></script>
+  <script type="module" src="js/editprofile.js"></script>
+  <script type="module">
+  import { applyDarkMode } from "./js/darkmode.js";
+  applyDarkMode();
+  </script>
+
+
+
+
+</body>
+</html>

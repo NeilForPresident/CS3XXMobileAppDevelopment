@@ -1,0 +1,128 @@
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #000;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 2px solid black;
+}
+
+header h1 {
+  font-size: 1.4rem;
+}
+
+.back-button {
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+}
+
+.notification {
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.page-title {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px auto;
+  width: 90%;
+}
+
+#searchInput {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+#searchBtn {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.section-divider {
+  border: none;
+  border-top: 2px solid black;
+  margin: 20px 0;
+}
+
+h3 {
+  margin-left: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0 20px;
+  margin: 0;
+}
+
+li {
+  border-bottom: 1.5px solid #ccc;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-result, .req-item, .friend-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.user-result strong, .req-item strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.user-result .tag, .req-item .tag {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+button {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.req-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.req-buttons button {
+  font-size: 0.9rem;
+}
+
+.friend-buttons {
+  display: flex;
+  gap: 8px;
+}

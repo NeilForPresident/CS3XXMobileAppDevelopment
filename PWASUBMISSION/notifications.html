@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>BeCareful. Notifications</title>
+  <link rel="stylesheet" href="darkmode.css">
+  <link rel="stylesheet" href="notifications.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="landing.html" class="back-button">‹ Back</a>
+    <h1>BeCareful.</h1>
+    <div class="notification">🔔</div>
+  </header>
+
+  <div class="top-divider"></div>
+
+  <h2 class="page-title">Notifications</h2>
+
+  <!-- Notification List -->
+  <section class="notifications-list">
+    <ul id="notificationsContainer">
+      <li><em>Loading notifications...</em></li>
+    </ul>
+  </section>
+
+  <link rel="manifest" href="manifest.json" />
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js");
+    }
+  </script>
+  <script type="module">
+  import { applyDarkMode } from "./js/darkmode.js";
+  applyDarkMode();
+  </script>
+
+
+  <script type="module" src="js/auth-guard.js"></script>
+  <script type="module" src="js/notifications-load.js"></script>
+
+</body>
+</html>

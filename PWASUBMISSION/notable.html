@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>BeCareful. Notable Falls</title>
+  <link rel="stylesheet" href="darkmode.css">
+  <link rel="stylesheet" href="notable.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="landing.html" class="back-button">‹ Back</a>
+    <h1>BeCareful.</h1>
+    <div class="notification">📱</div>
+  </header>
+
+  <div class="top-divider"></div>
+
+  <h2 class="page-title">Notable Falls</h2>
+
+  <!-- Dynamic Falls List -->
+  <section class="falls-list">
+    <ul id="notableList">
+      <li><em>Loading...</em></li>
+    </ul>
+  </section>
+
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js");
+    }
+  </script>
+  <script type="module">
+  import { applyDarkMode } from "./js/darkmode.js";
+  applyDarkMode();
+  </script>
+
+
+  <script type="module" src="js/auth-guard.js"></script>
+  <script type="module" src="js/notable-load.js"></script>
+
+</body>
+</html>

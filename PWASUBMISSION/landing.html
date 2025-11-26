@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>BeCareful.</title>
+  <link rel="stylesheet" href="darkmode.css">
+  <link rel="stylesheet" href="landing.css">
+  <style>
+    
+    #confirm-fall-modal #initial-prompt { display: block; }
+    #confirm-fall-modal #detecting-bounces, 
+    #confirm-fall-modal #notable-section {
+      display: none;
+    }
+
+    
+    #confirm-fall-modal.detecting-bounces #initial-prompt, 
+    #confirm-fall-modal.detecting-bounces #notable-section {
+      display: none;
+    }
+    #confirm-fall-modal.detecting-bounces #detecting-bounces {
+      display: block;
+    }
+
+    
+    #confirm-fall-modal.showing-notable #initial-prompt, 
+    #confirm-fall-modal.showing-notable #detecting-bounces {
+      display: none;
+    }
+    #confirm-fall-modal.showing-notable #notable-section {
+      display: block;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>BeCareful.</h1>
+    <a href="notifications.html" class="notification">🔔</a>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav>
+    <button class="tab" id="profile-tab">profile</button>
+    <button class="tab active" id="home-tab">home</button>
+    <button class="tab" id="social-tab">social</button>
+  </nav>
+
+
+
+  <!-- HOME SECTION -->
+  <section id="home" class="content active">
+    <p class="subtitle">You've Dropped Your Phone...</p>
+    <div class="circle">
+      <h2>0</h2>
+      <p>Times</p>
+    </div>
+
+    <p class="subtitle">...in the past</p>
+
+    <div class="dropdowns">
+      <select id="monthDropdown"></select>
+      <select id="rangeSelect">
+      <option value="MONTH">Monthly</option>
+      <option value="WEEK">Weekly</option>
+      <option value="DAY">Daily</option>
+      </select>
+    </div>
+
+    <a href="charts.html" class="charts">CHARTS ></a>
+
+
+    <p class="funfact">
+      <strong>Fun Fact of The Day #4465:</strong><br>
+      you can’t hum while holding your nose.<br>
+      Go ahead and try anyways, I’ll wait.
+    </p>
+
+    
+
+  </section>
+
+  <!-- PROFILE SECTION -->
+  <section id="profile" class="content">
+    <div class="profile-info">
+    <div class="avatar"></div>
+    <h2>Neil Lawrence</h2>
+    <p id="userTagDisplay">user#------</p>
+    <!--<p id="memberSince">Member since April 7 2024</p>-->
+    </div>
+
+    <li><a href="editprofile.html" class="settings-link"><span>Edit Profile</span><span>›</span></a></li>
+
+    <hr>
+
+    <div class="stats">
+      <h3>Your Statistics:</h3>
+      <ul>
+        <li><span>Total Drops</span><span>134</span></li>
+        <li><span>Total Distance Dropped (m)</span><span>13.06</span></li>
+        <li><span>Bounces</span><span>134</span></li>
+        <li><span>Friends</span><span>3</span></li>
+        <li><span>Advanced Statistics</span><span></span></li>
+        <li><a href="notable.html" class="settings-link"><span>Notable Falls</span><span></span></a></li>
+        <li>
+        <a href="settings.html" class="settings-link">
+        <span>Settings</span><span></span>
+        </a>
+        </li>
+        <li class="signout"><span>Sign Out</span></li>
+        
+      </ul>
+    </div>
+  </section>
+
+<!-- SOCIAL SECTION -->
+<section id="social" class="content">
+  <h2>Leaderboards</h2>
+
+  <div class="dropdowns">
+    <select id="metricSelect">
+      <option value="distance">Distance (m)</option>
+      <option value="drops">Drops</option>
+      <option value="bounces">Bounces</option>
+    </select>
+  </div>
+
+  <ul class="leaderboard"></ul>
+
+  <hr class="spacer">
+
+  <div class="add-friends">
+    <a href="friends.html">Add Friends</a>
+    <span class="arrow">›</span>
+  </div>
+</section>
+
+
+
+
+
+<!-- CONFIRM FALL POPUP -->
+<div id="confirm-fall-modal" class="modal">
+  <div class="modal-content">
+    <!-- Initial Prompt -->
+    <div id="initial-prompt">
+      <h2>Possible Fall Detected</h2>
+      <p>Was this a real drop?</p>
+      <div class="modal-buttons">
+        <button id="fall-yes">Yes, it was</button>
+        <button id="fall-no" class="secondary">No, false alarm</button>
+      </div>
+    </div>
+
+    <!-- Bounce Detection -->
+    <div id="detecting-bounces">
+      <h2>Detecting Bounces...</h2>
+      <p>Please hold still for a moment.</p>
+    </div>
+
+    <!-- Notable Fall Prompt -->
+    <div id="notable-section">
+      <p>Do you want to save this as a notable fall?</p>
+      <textarea id="notable-text" placeholder="Describe what happened..." rows="3"></textarea>
+      <div class="modal-buttons">
+        <button id="notable-save">Save as Notable</button>
+        <button id="notable-skip" class="secondary">Skip</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="module">
+  import { enableSensors, simulateFall } from "./js/sensors.js";
+  // Start listening after a tap (required for iOS)
+  document.body.addEventListener("click", () => {
+    enableSensors();
+  }, { once: true });
+
+  // Attach the test function to the button
+  document.getElementById("simulate-fall-btn").addEventListener("click", simulateFall);
+</script>
+<script type="module" src="js/home-load.js"></script>
+<script type="module" src="js/auth-guard.js"></script>
+<script type="module" src="js/leaderboard-friends.js"></script>
+<script src="landing.js"></script>
+<script type="module" src="js/auth-guard.js"></script>
+<script type="module" src="js/profile-load.js"></script>
+<script type="module" src="js/signout.js"></script>
+<script type="module">
+  import { applyDarkMode } from "./js/darkmode.js";
+  applyDarkMode();
+</script>
+
+<link rel="manifest" href="manifest.json">
+</body>
+</html>

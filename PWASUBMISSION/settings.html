@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>BeCareful. Settings</title>
+  <link rel="stylesheet" href="darkmode.css">
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="landing.html" class="back-button">‹ Back</a>
+    <h1>BeCareful.</h1>
+    <div class="notification">⚙️</div>
+  </header>
+
+  <div class="top-divider"></div>
+
+  <!-- Page Title -->
+  <h2 class="page-title">Settings</h2>
+
+  <!-- Settings Options -->
+  <section class="settings-section">
+    <h3>App Preferences</h3>
+    <ul>
+      <li>
+        <span>Enable Fall Detection</span>
+        <label class="switch">
+          <input type="checkbox" checked>
+          <span class="slider"></span>
+        </label>
+      </li>
+      <li>
+        <span>Vibration Feedback</span>
+        <label class="switch">
+          <input type="checkbox" checked>
+          <span class="slider"></span>
+        </label>
+      </li>
+      <li>
+        <span>Push Notifications</span>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider"></span>
+        </label>
+      </li>
+    </ul>
+  </section>
+
+  <section class="settings-section">
+    <h3>Accessibility</h3>
+    <ul>
+      <li>
+        <span>Large Text</span>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider"></span>
+        </label>
+      </li>
+    </ul>
+  </section>
+
+  <section class="settings-section">
+    <h3>Account</h3>
+    <ul>
+      <li><a href="#">Edit Profile ›</a></li>
+      <li><a href="#">Manage Friends ›</a></li>
+      <li><a href="#">Privacy Policy ›</a></li>
+      <li class="danger"><a href="#">Delete Account ›</a></li>
+      <li class="danger"><a href="index.html">Sign Out ›</a></li>
+    </ul>
+  </section>
+
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+    }
+  </script>
+  <script type="module" src="js/auth-guard.js"></script>
+  <script type="module">
+  import { applySavedTheme } from "./js/theme.js";
+  applySavedTheme();
+</script>
+<script type="module">
+  import { setupDarkToggle, applyDarkMode } from "./js/darkmode.js";
+  applyDarkMode();
+  setupDarkToggle();
+</script>
+
+
+
+</body>
+</html>

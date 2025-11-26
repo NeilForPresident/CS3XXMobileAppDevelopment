@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  background: white;
+  color: black;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 2px solid black;
+}
+
+.back-button {
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: black;
+}
+
+.notification {
+  font-size: 1.4rem;
+}
+
+.page-title {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.notifications-list {
+  margin-top: 15px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 20px;
+}
+
+li {
+  padding: 14px 0;
+  border-bottom: 1.5px solid #e0e0e0;
+}
+
+.notification-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notification-title {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.notification-body {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.notification-date {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.unread {
+  background: #fdf4b4;
+  border-left: 4px solid black;
+  padding-left: 12px;
+}
